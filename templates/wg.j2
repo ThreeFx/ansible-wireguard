@@ -7,6 +7,18 @@ Address = {{ item.interface.address | join(' ,') }}
 {% if item.interface.dns is defined %}
 DNS = {{ item.interface.dns | join(', ') }}
 {% endif %}
+{% for pre_up in item.interface.pre_up|default([]) %}
+PreUp = {{ pre_up }}
+{% endfor %}
+{% for post_up in item.interface.post_up|default([]) %}
+PostUp = {{ post_up }}
+{% endfor %}
+{% for pre_down in item.interface.pre_down|default([]) %}
+PreDown = {{ pre_down }}
+{% endfor %}
+{% for post_down in item.interface.post_down|default([]) %}
+PostDown = {{ post_down }}
+{% endfor %}
 {% for peer in item.peers %}
 
 [Peer]
