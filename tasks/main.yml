@@ -8,12 +8,13 @@
     default_release: "{{ wireguard_apt_release }}"
   when: ansible_os_family == 'Debian'
 
-- name: Install wireguard (non-Debian)
+- name: Install wireguard (Archlinux)
   become: True
   package:
     name:
-      - wireguard
-  when: not (ansible_os_family == 'Debian')
+      - wireguard-lts
+      - wireguard-tools
+  when: ansible_os_family == 'Archlinux'
 
 - name: Configure wireguard tunnels
   become: True
