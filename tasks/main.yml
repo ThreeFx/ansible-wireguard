@@ -1,5 +1,5 @@
 ---
-- name: Install wiregurad
+- name: Install wireguard
   become: True
   apt:
     package:
