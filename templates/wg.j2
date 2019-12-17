@@ -1,11 +1,11 @@
 [Interface]
-{% if item.listen_port is defined %}
-ListenPort = {{ item.listen_port }}
+{% if item.interface.listen_port is defined %}
+ListenPort = {{ item.interface.listen_port }}
 {% endif %}
-PrivateKey = {{ item.private_key }}
-Address = {{ item.address | join(' ,') }}
-{% if item.dns is defined %}
-DNS = {{ item.dns | join(', ') }}
+PrivateKey = {{ item.interface.private_key }}
+Address = {{ item.interface.address | join(' ,') }}
+{% if item.interface.dns is defined %}
+DNS = {{ item.interface.dns | join(', ') }}
 {% endif %}
 {% for peer in item.peers %}
 
