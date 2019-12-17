@@ -1,8 +1,8 @@
 ---
-wireguard_apt_release: "testing" # Wireguard is not packaged yet in Debian,
-                                 # we have to pull it from testing, and the
-                                 # kernel as well
-
+wireguard_enable_ip_forwarding: False  # Whether to enable ip forwarding
+wireguard_apt_release: "testing"       # Wireguard is not packaged yet in Debian,
+                                       # we have to pull it from testing, and the
+                                       # kernel as well
 wireguard_configurations: []
 # - name: "wg0"                        # required, Interface name
 #   start_at_boot: True                # optional, whether to start this connection at boot (default: true)
