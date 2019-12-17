@@ -1,5 +1,5 @@
 [Interface]
-{% if item.listen_port %}
+{% if item.listen_port is defined %}
 ListenPort = {{ item.listen_port }}
 {% endif %}
 PrivateKey = {{ item.private_key }}
