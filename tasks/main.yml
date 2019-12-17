@@ -1,11 +1,19 @@
 ---
-- name: Install wireguard
+- name: Install wireguard (Debian)
   become: True
   apt:
     package:
       - wireguard
       - linux-image-amd64
     default_release: "{{ wireguard_apt_release }}"
+  when: ansible_os_family == 'Debian'
+
+- name: Install wireguard (non-Debian)
+  become: True
+  package:
+    name:
+      - wireguard
+  when: not (ansible_os_family == 'Debian')
 
 - name: Configure wireguard tunnels
   become: True
@@ -18,6 +26,3 @@
   with_items: "{{ wireguard_configurations }}"
   register: wireguard_configurations_results
   notify: restart wireguard tunnels
-
-- debug:
-    var: wireguard_configurations_results
