@@ -28,5 +28,8 @@ PublicKey = {{ peer.public_key }}
 {% if peer.endpoint is defined %}
 Endpoint = {{ peer.endpoint }}
 {% endif %}
+{% if peer.persistent_keepalive is defined %}
+PersistentKeepalive = {{ peer.persistent_keepalive }}
+{% endif %}
 AllowedIps = {{ peer.allowed_ips | join(', ') }}
 {% endfor %}

@@ -23,3 +23,4 @@ wireguard_configurations: []
 #         - 192.0.2/24
 #         - 2001:db8::/64
 #       endpoint: 192.0.2.4/29         # optional, which endpoint to connect to (IPv4/6 possible)
+#       persistent_keepalive: 10       # optional, heartbeat time (in s). Useful when connecting through stateful firewalls
