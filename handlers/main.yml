@@ -1,0 +1,9 @@
+---
+- name: restart wireguard tunnels
+  become: True
+  systemd:
+    name: "wg-quick@{{ item.item.name }}"
+    state: restarted
+    enabled: "{{ item.item.start_at_boot | default(true) }}"
+  with_items: "{{ wireguard_configurations_results.results }}"
+  when: item.changed

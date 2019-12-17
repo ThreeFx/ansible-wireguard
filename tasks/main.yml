@@ -1,0 +1,23 @@
+---
+- name: Install wiregurad
+  become: True
+  apt:
+    package:
+      - wireguard
+      - linux-image-amd64
+    default_release: "{{ wireguard_apt_release }}"
+
+- name: Configure wireguard tunnels
+  become: True
+  template:
+    src: wg.j2
+    dest: "/etc/wireguard/{{ item.name }}.conf"
+    mode: 0600
+    owner: root
+    group: root
+  with_items: "{{ wireguard_configurations }}"
+  register: wireguard_configurations_results
+  notify: restart wireguard tunnels
+
+- debug:
+    var: wireguard_configurations_results

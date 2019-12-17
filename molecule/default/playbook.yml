@@ -1,0 +1,23 @@
+---
+- name: Converge
+  hosts: all
+  roles:
+    - role: wireguard
+      wireguard_apt_release: "sid"
+      wireguard_configurations:
+        - name: wg0
+          private_key: WGf0MfPrKoja0z6Ssk0PwoutTtSEJCDiAF0C0oim9Ho=
+          listen_port: 2000
+          address: 127.0.10.0/31
+          peers:
+            - endpoint: 127.0.0.1:2001
+              public_key: z/kEQao0vR8PhkHXSgQnbQZSOL0MJiDXIU84M9YGM3g=
+              allowed_ips: [127.0.10.0/31]
+        - name: wg1
+          listen_port: 2001
+          private_key: eFyZQnKJq8aHQrdbui6UnyJeSZ8WYXASSJWQMM+1EXI=
+          address: 127.0.10.1/31
+          peers:
+            - endpoint: 127.0.0.1:2000
+              public_key: tGVRAH6aVt+bvu4qVteb32nPUpjrWwyQOIMJmiHOeGs=
+              allowed_ips: [127.0.10.0/31]

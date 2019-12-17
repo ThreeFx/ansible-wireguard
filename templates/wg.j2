@@ -1,0 +1,11 @@
+[Interface]
+ListenPort = {{ item.listen_port }}
+PrivateKey = {{ item.private_key }}
+Address = {{ item.address }}
+{% for peer in item.peers %}
+
+[Peer]
+PublicKey = {{ peer.public_key }}
+Endpoint = {{ peer.endpoint }}
+AllowedIps = {{ peer.allowed_ips | join(', ') }}
+{% endfor %}
