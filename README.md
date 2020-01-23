@@ -1,12 +1,12 @@
 wireguard
 =========
 
-Role to set up wireguard on (primarily) Debian systems.
+Role to set up wireguard on Debian systems.
 
-Note that for Debians systems up until buster you have to enable at least
-`testing` (Codename: bullseye) repositories, since wireguard is only packaged for
-bullseye and later. See [this role](https://github.com/ThreeFx/apt) for an
-Ansible role for this.
+Note that for Debians systems up until (and including) buster you have to
+enable at least `testing` (Codename: bullseye) repositories, since wireguard is
+only packaged for bullseye and later. See [this
+role](https://github.com/ThreeFx/apt) for an Ansible role for this.
 
 Requirements
 ------------
