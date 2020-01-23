@@ -20,7 +20,6 @@ Role Variables
 | Variable Name | Default Value | Description |
 --------------- |---------------|--------------
 `wireguard_enable_ip_forwarding` | False | Whether to enable ip forwarding.
-`wireguard_apt_release` | "testing" | Apt release to install wireguard from.
 `wireguard_configurations` | [] | See `defaults/main.yml` for more information.
 
 Dependencies
