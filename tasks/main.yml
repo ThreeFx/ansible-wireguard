@@ -1,11 +1,12 @@
 ---
-- name: Install wireguard
+- name: Install wireguard and dependencies
   become: True
   apt:
     package:
       - wireguard
       - linux-image-amd64
       - linux-headers-amd64
+      - resolvconf
   when: ansible_os_family == 'Debian'
 
 - name: Configure wireguard tunnels
