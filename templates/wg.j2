@@ -4,7 +4,7 @@ ListenPort = {{ item.interface.listen_port }}
 {% endif %}
 PrivateKey = {{ item.interface.private_key }}
 {% if item.interface.address is defined %}
-Address = {{ item.interface.address | join(' ,') }}
+Address = {{ item.interface.address | join(', ') }}
 {% endif %}
 {% if item.interface.dns is defined %}
 DNS = {{ item.interface.dns | join(', ') }}
